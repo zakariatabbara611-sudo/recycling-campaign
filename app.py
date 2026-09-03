@@ -93,7 +93,7 @@ def signup():
 # --- FORGOT & RESET PASSWORD ROUTES ---
 
 @app.route('/forgot', methods=['GET', 'POST'])
-def forgot():
+def forgot_password():
     if request.method == 'POST':
         email = request.form.get('email', '').strip()
         
