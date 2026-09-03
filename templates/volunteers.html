@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Volunteers</h2>
+
+<form action="{{ url_for('schedule.add_volunteer') }}" method="post">
+    <label>Name</label>
+    <input name="name" />
+    <label>Email</label>
+    <input name="email" />
+    <label>Phone</label>
+    <input name="phone" />
+    <label><input type="checkbox" name="is_manager" /> Manager</label>
+    <button type="submit">Add Volunteer</button>
+</form>
+
+<h3 style="margin-top:18px">Existing</h3>
+<ul>
+  {% for v in volunteers %}
+    <li>{{ v['name'] }} — {{ v['email'] }} — <a href="{{ url_for('schedule.delete_volunteer', vid=v['id']) }}">Delete</a></li>
+  {% else %}
+    <li>No volunteers yet</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

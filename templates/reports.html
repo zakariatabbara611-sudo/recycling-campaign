@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Reports — {{ period|capitalize }}</h2>
+
+<p>Total bags: {{ total_bags }}</p>
+<p>Total assignments: {{ assigned }}</p>
+
+<p>Quick links: <a href="{{ url_for('schedule.reports', period='weekly') }}">Weekly</a> | <a href="{{ url_for('schedule.reports', period='monthly') }}">Monthly</a> | <a href="{{ url_for('schedule.reports', period='yearly') }}">Yearly</a></p>
+
+{% endblock %}

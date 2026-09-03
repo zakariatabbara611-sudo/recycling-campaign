@@ -1,0 +1,21 @@
+import os
+import sqlite3
+connection = sqlite3.connect("checker.db")
+cursor = connection.cursor()
+script_dir = os.path.dirname(os.path.abspath(__file__))
+db_path = os.path.join(script_dir, "checker.db")
+print("your data base is in", {db_path})
+cursor.execute("""
+    CREATE TABLE IF NOT EXISTS logen (
+        username TEXT unique,
+        password TEXT
+               )
+""")
+def add_user(username, password):
+    cursor.execute("INSERT OR IGNORE INTO logen (username, password) VALUES (?, ?)", (username, password))
+add_user('zak','ahmed30')
+add_user('ahmed', 'ahmed1234')
+cursor.execute("INSERT OR IGNORE INTO logen (username, password) VALUES ('zakk', 'kaxdn')")
+cursor.execute("DROP TABLE IF EXISTS log_in")
+connection.commit()
+

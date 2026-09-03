@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Reset Password</h2>
+<form action="/reset" method="POST">
+    <label>6-Digit Verification Code</label>
+    <input type="text" name="code" placeholder="Enter code from email" maxlength="6" required>
+    
+    <label>New Password</label>
+    <input type="password" name="password" placeholder="Enter new password" required>
+    
+    <button type="submit">Verify Code & Update Password</button>
+</form>
+<div class="links">
+    <a href="/forgot">Resend Code</a>
+</div>
+{% endblock %}

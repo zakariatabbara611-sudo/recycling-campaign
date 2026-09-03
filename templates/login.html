@@ -1,0 +1,21 @@
+
+    
+</body>
+</html>
+{% extends 'base.html' %}
+{% block content %}
+<h2>GPA Portal Login</h2>
+<form action="/login" method="POST">
+    <label>Username</label>
+    <input type="text" name="username" required>
+    
+    <label>Password</label>
+    <input type="password" name="password" required>
+    
+    <button type="submit">Log In</button>
+</form>
+<div class="links">
+    <p><a href="/forgot">Forgot Password?</a></p>
+    <p>Need an account? <a href="/signup">Sign Up</a></p>
+</div>
+{% endblock %}

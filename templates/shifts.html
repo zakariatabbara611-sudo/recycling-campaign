@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Shifts</h2>
+
+<form action="{{ url_for('schedule.add_shift') }}" method="post">
+    <label>Date</label>
+    <input type="date" name="date" />
+    <label>Start time</label>
+    <input type="time" name="start_time" />
+    <label>End time</label>
+    <input type="time" name="end_time" />
+    <label>Description</label>
+    <input name="description" />
+    <button type="submit">Create Shift</button>
+</form>
+
+<h3 style="margin-top:18px">Upcoming Shifts</h3>
+<ul>
+  {% for s in shifts %}
+    <li>{{ s['date'] }} {{ s['start_time'] }}-{{ s['end_time'] }} — {{ s['description'] }}</li>
+  {% else %}
+    <li>No shifts yet</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
